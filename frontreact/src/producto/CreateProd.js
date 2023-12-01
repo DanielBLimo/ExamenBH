@@ -16,6 +16,7 @@ const CompCreateProd = () => {
       alert('ERROR no se agrego la imagen');
       return;
     }
+    //creamos un data para guardar los datos
     const formdata = new FormData();
     formdata.append('file', file);
     formdata.append('nombre', nombre);
@@ -68,6 +69,7 @@ const CompCreateProd = () => {
                   />
                 </div>
                 <div className='mb-3'>
+                  <label className='form-label'>Imagén del producto</label>
                   <input
                     id='fileinput'
                     onChange={selectedHandler}

@@ -21,7 +21,7 @@ function App() {
         <Routes>
           <Route path='/' element={<CompShowProd />} />
           <Route path='/create' element={<CompCreateProd />} />
-          <Route path='/edit/:idProd' element={<CompEditProd />} />
+          <Route path='/edit/:id' element={<CompEditProd />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -13,7 +13,7 @@ const ProductoModel = db.define('productos', {
   nombre: { type: DataTypes.STRING },
   precio: { type: DataTypes.DECIMAL },
   imagen: {
-    type: DataTypes.STRING,
+    type: DataTypes.BLOB,
   },
 });
 
