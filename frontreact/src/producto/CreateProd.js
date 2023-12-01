@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
+//url del servidor
 const URI = 'http://localhost:8000/producto/';
 
 const CompCreateProd = () => {

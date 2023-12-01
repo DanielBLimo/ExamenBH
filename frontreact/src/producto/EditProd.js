@@ -2,12 +2,14 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
+//url del servidor
 const URI = 'http://localhost:8000/producto/';
 
 const CompEditProd = () => {
   const [nombre, setNombre] = useState('');
   const [precio, setPrecio] = useState('');
   const navigate = useNavigate();
+  //id del producto
   const { id } = useParams();
 
   //procedimiento para actualizar
@@ -21,10 +23,12 @@ const CompEditProd = () => {
     alert('Datos actualizados con exito');
   };
 
+  //effect para traer los datos el producto
   useEffect(() => {
     getProdById();
   }, []);
 
+  //procedimiento dpara traer el producto
   const getProdById = async () => {
     const res = await axios.get(URI + id);
     setNombre(res.data.nombre);

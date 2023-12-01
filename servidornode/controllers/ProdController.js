@@ -94,6 +94,7 @@ export const deleteProducto = async (req, res) => {
     await ProductoModel.destroy({
       where: { id: req.params.id },
     });
+    //sirve para eliminar la imagen de la carpeta dbimages
     fs.unlinkSync(path.join(__dirname, 'dbimages/' + req.params.id + '.png'));
     res.json({
       message: 'Registro eliminado',
