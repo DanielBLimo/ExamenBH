@@ -35,6 +35,7 @@ const CompCreateProd = () => {
       });
 
     navigate('/');
+    alert('Datos agregados con exito');
   };
 
   const selectedHandler = (e) => {

@@ -18,12 +18,14 @@ const CompShowProd = () => {
   const [modal, setModal] = useState(false);
   const [actual, SetActual] = useState(null);
 
-  //cargar los productos o actualizar cada que  entra
+  //cargar los productos o actualizar cada que entra
   useEffect(() => {
-    ReactModal.setAppElement('body');
-    getProd();
-    getImage();
-    setActualizar(false);
+    if (actualizar === true) {
+      ReactModal.setAppElement('body');
+      getProd();
+      getImage();
+      setActualizar(true);
+    }
   }, [actualizar]);
 
   //procedimineto para mostrar todos los productos
@@ -36,6 +38,13 @@ const CompShowProd = () => {
   const getImage = async () => {
     const res = await axios.get(URIFOTOS);
     setImagenList(res.data);
+  };
+
+  //procedimineto para eliminar un producto
+  const deleteProd = async (id) => {
+    await axios.delete(`${URI}${id}`);
+    getProd();
+    alert('Producto Eliminado con exito');
   };
 
   //modal fotos
@@ -77,10 +86,13 @@ const CompShowProd = () => {
                     </button>
                   </td>
                   <td>
-                    <Link className='btn btn-info'>
+                    <Link className='btn btn-info' to={`/edit/${producto.id}`}>
                       <i className='fas fa-edit'></i>
                     </Link>
-                    <button className='btn btn-danger'>
+                    <button
+                      onClick={() => deleteProd(producto.id)}
+                      className='btn btn-danger'
+                    >
                       <i className='fas fa-trash-alt'></i>
                     </button>
                   </td>
@@ -91,7 +103,7 @@ const CompShowProd = () => {
         </div>
       </div>
       <ReactModal
-        style={{ content: { right: '30%', left: '30%' } }}
+        style={{ content: { right: '30%', left: '30%', bottom: 'auto' } }}
         isOpen={modal}
         onRequestClose={() => setModal(false, null)}
       >

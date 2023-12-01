@@ -21,6 +21,6 @@ router.get('/fotos', getAllImage); //con imagenes
 router.get('/:id', getProdcuto);
 router.post('/', uplades.single('file'), createProducto);
 router.put('/:id', updateProducto);
-router.delete('/id', deleteProducto);
+router.delete('/:id', deleteProducto);
 
 export default router;
