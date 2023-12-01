@@ -39,7 +39,7 @@ export const createProducto = async (req, res) => {
 export const updateProducto = async (req, res) => {
   try {
     await ProductoModel.update(req.body, {
-      where: { idProd: req.params.idProd },
+      where: { id: req.params.id },
     });
     res.json({
       message: 'Registro actualizado',
